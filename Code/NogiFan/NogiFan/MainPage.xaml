@@ -1,0 +1,98 @@
+﻿<Page
+    x:Class="NogiFan.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:NogiFan"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    xmlns:data="using:NogiFan"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <MediaElement AutoPlay="False" Source="Assets/BGM1.mp3" Name="BGM" MediaEnded="BGM_MediaEnded">
+        </MediaElement>
+        <ListView Grid.Column="0" IsItemClickEnabled="True" ItemClick="ListView_ItemClick">
+            <Grid x:Name="MemberPage">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+                <SymbolIcon Grid.Column="0" Symbol="People"/>
+                <TextBlock Grid.Column="1" Text="{x:Bind menu.member}" FontSize="36"/>
+            </Grid>
+            <Grid x:Name="SongPage">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+                <SymbolIcon Grid.Column="0" Symbol="MusicInfo"/>
+                <TextBlock Grid.Column="1" Text="{x:Bind menu.song}" FontSize="36"/>
+            </Grid>
+            <Grid x:Name="BlogPage">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+                <SymbolIcon Grid.Column="0" Symbol="Page"/>
+                <TextBlock Grid.Column="1" Text="{x:Bind menu.blog}" FontSize="36"/>
+            </Grid>
+            <Grid x:Name="OshimenPage">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+                <SymbolIcon Grid.Column="0" Symbol="Like"/>
+                <TextBlock Grid.Column="1" Text="{x:Bind menu.oshimen}" FontSize="36"/>
+            </Grid>
+            <Grid x:Name="NewsPage">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+                <SymbolIcon Grid.Column="0" Symbol="Remote"/>
+                <TextBlock Grid.Column="1" Text="{x:Bind menu.news}" FontSize="36"/>
+            </Grid>
+            <Grid x:Name="ShopPage">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+                <SymbolIcon Grid.Column="0" Symbol="Shop"/>
+                <TextBlock Grid.Column="1" Text="{x:Bind menu.shop}" FontSize="24"/>
+            </Grid>
+            <Grid x:Name="HandPage">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+                <SymbolIcon Grid.Column="0" Symbol="List"/>
+                <TextBlock Grid.Column="1" Text="{x:Bind menu.hand}" FontSize="36"/>
+            </Grid>
+        </ListView>
+        <Grid Grid.Column="1" Margin="10,0,0,0">
+            <ScrollViewer VerticalScrollBarVisibility="Auto">
+                <TextBlock x:Name="About" Visibility="Collapsed" TextWrapping="Wrap" IsTextSelectionEnabled="True"/>
+            </ScrollViewer>
+            <Frame x:Name="To"/>
+        </Grid>
+    </Grid>
+    
+    <Page.BottomAppBar>
+        <CommandBar>
+            <AppBarButton Icon="Play" Label="Play" Click="AppBarButton_Click_1" x:Name="play"/>
+            <AppBarButton Icon="Next" Label="Next" Click="AppBarButton_Click_2" x:Name="Next"/>
+            <AppBarButton Icon="Refresh" Label="{x:Bind menu.tran}" Click="AppBarButton_Click"/>
+            <AppBarButton Icon="WebCam" Label="{x:Bind menu.official}" Click="AppBarButton_Click_3"/>
+            <AppBarButton Label="About" Click="AppBarButton_Click_4">
+                <AppBarButton.Icon>
+                    <FontIcon FontFamily="Segoe UI Emoji" Glyph="&#x003F;"/>
+                </AppBarButton.Icon>
+            </AppBarButton>
+        </CommandBar>
+    </Page.BottomAppBar>
+</Page>

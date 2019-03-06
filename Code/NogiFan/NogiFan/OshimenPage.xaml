@@ -1,0 +1,44 @@
+﻿<Page
+    x:Class="NogiFan.OshimenPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:NogiFan"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    xmlns:data="using:NogiFan.Models"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <ComboBox Grid.Column="0" x:Name="addBox" ItemsSource="{x:Bind name}" Margin="10,0,10,0" MinWidth="120"/>
+            <Button Grid.Column="1" x:Name="Add" Content="{x:Bind menu.add}" Click="Add_Click" Margin="10,0,10,0"/>
+            <ComboBox Grid.Column="2" x:Name="removeBox" ItemsSource="{x:Bind name2}" Margin="10,0,10,0" MinWidth="120"/>
+            <Button Grid.Column="3" x:Name="Remove" Content="{x:Bind menu.remove}" Click="Remove_Click" Margin="10,0,10,0"/>
+        </Grid>
+        <GridView Grid.Row="1" x:Name="MemberList" IsItemClickEnabled="True" ItemsSource="{x:Bind ViewModel.getoshi}" ItemClick="MemberList_ItemClick">
+            <GridView.ItemTemplate>
+                <DataTemplate x:DataType="data:Member">
+                    <StackPanel MinWidth="124">
+                        <Image x:Name="img" Source="{x:Bind image}" Height="140" Width="116"/>
+                        <TextBlock x:Name="eng" Text="{x:Bind eng}" FontSize="24" HorizontalAlignment="Center"/>
+                        <TextBlock x:Name="name" Text="{x:Bind name}" FontSize="24" HorizontalAlignment="Center"/>
+                        <TextBlock x:Name="birth" Text="{x:Bind birthday}" FontSize="24" HorizontalAlignment="Center"/>
+                        <Button x:Name="blog" Content="{x:Bind toBlog}" FontSize="24" Click="blog_Click" HorizontalAlignment="Center"/>
+                        <Button x:Name="detail" Content="{x:Bind toProfile}" FontSize="24" Click="detail_Click" HorizontalAlignment="Center"/>
+                    </StackPanel>
+                </DataTemplate>
+            </GridView.ItemTemplate>
+        </GridView>
+    </Grid>
+</Page>

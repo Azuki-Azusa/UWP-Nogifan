@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<tile>
+  <visual branding="name" displayName="NogiFan">
+    <binding template="TileSmall">
+      <image src="http://img.nogizaka46.com/www/member/img/saitouasuka_prof.jpg" placement="background" ></image>
+      <text hint-style="subtitle">SmallDetail</text>
+      <text hint-style="captionSubtle">SmallText</text>
+    </binding>
+    <binding template="TileMedium">
+      <image src="http://img.nogizaka46.com/www/member/img/saitouasuka_prof.jpg" placement="background" ></image>
+      <text hint-style="subtitle">MediumDetail</text>
+      <text hint-style="captionSubtle">MediumText</text>
+    </binding>
+    <binding template="TileWide">
+      <group>
+        <subgroup>
+          <text hint-style="subtitle">WideDetail</text>
+          <text hint-style="captionSubtle">WideText</text>
+        </subgroup>
+      </group>
+      <image src="http://img.nogizaka46.com/www/member/img/saitouasuka_prof.jpg" placement="background" />
+    </binding>
+  </visual>
+</tile>
